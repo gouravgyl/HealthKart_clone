@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* #background{
+            background-color: rgb(174, 174, 243);
+        } */
+        .header img{
+            width: 100%;
+            height: 80px
+        }
+
+        .search-div {
+        display: flex;
+        width: 29%;
+        background-color: #eee;
+        height: 40px;
+        align-items: center;
+        justify-content: flex-start;
+        margin-top: 20px;
+        border-radius: 3px;
+      }
+
+      #searchpng {
+        width: 15px;
+        margin: 15px;
+        opacity: 0.5;
+        color: #3c3c3c
+      }
+      .search-div input {
+        width: 70%;
+        border: none;
+        margin-left: 2%;
+        background-color: #eee;
+        color: #3c3c3c
+      }
+      input:focus,
+      textarea:focus,
+      select:focus {
+        outline: none;
+      }
+      .search-div +div{
+          display: flex;
+          /* border: solid black; */
+          margin: 1%;
+          margin-top: 20px;
+          
+      }
+      .search-div +div span{
+          
+          margin: 10px;
+          font-family: Roboto,sans-serif;
+        font-size: 14px;
+        color: #212121;
+      }
+      .search-div +div span:hover{
+          color: skyblue;
+      }
+      .line{
+          margin-top: 12px;
+          height: 15px;
+          width: 2px;
+          background-color: black;
+      }
+      .main{
+          display: flex;
+          width: 700px;
+          height: 500px;
+          margin:auto;
+          margin-top: 50px;
+      }
+      .img_div{
+          width: 49%;
+          background-image: url("https://img4.hkrtcdn.com/react/static/media/signupFlow/login-bg.png");
+          object-fit: cover;
+      }
+      #signup_form{
+          font-family: sans-serif;
+          margin-left: 30px;
+          margin-top: 30px;
+      }
+      #signup_form input{
+          width: 250px;
+          padding: 10px;
+          border: solid skyblue;
+      }
+      #signup_form a{
+          margin-top: 30px;
+      }
+      #signup_form button{
+          margin-top: 30px;
+          width: 280px;
+          padding: 10px;
+          background-color: #00afae;
+          color: white;
+          border: none;
+      }
+      .img_div label{
+        line-height: 30px;
+        font-size: 20px;
+        margin-left: 30px;
+      }
+      #alert{
+          color: red;
+          margin-left: 30px;
+      }
+      #signup_btn{
+          margin-top: 30px;
+          margin-left: 30px;
+          width: 280px;
+          padding: 10px;
+          background-color: #00afae;
+          color: white;
+          border: none;
+      }
+
+    </style>
+</head>
+<body>
+    <div style="display: flex; margin-left: 100px; justify-content: center;">
+        <div class="header">
+            <div> <img src="https://tse2.mm.bing.net/th?id=OIP.nPsqDhd1SHPHxHqkzPY8WQHaCh&pid=Api&P=0&w=526&h=180"
+                    alt="logo"></div>
+        </div>
+        <div class="search-div">
+            <img id="searchpng" src="https://image.flaticon.com/icons/png/128/49/49116.png" alt="" />
+    
+            <input type="text" placeholder="Search for products, brands or Health Goals" />
+        </div>
+        <div><span>Loyalty Rewards</span>
+            <div class="line"></div><span>Customer Support</span>
+            <div class="line"></div><span><img src="https://img2.hkrtcdn.com/react/static/media/common/header/acc-icon.svg"
+                    alt=""> MyAccount & orders</span>
+            <div class="line"></div><span><span></span><img style="width: 30px;"
+                    src="https://img2.hkrtcdn.com/react/static/media/common/header/cart.svg" alt=""></span>
+        </div>
+    </div>
+    <hr>
+    <div id="background">
+        <div class="main">
+            <div class="img_div">
+                <h1 style="color: white;margin-left: 30px;">Why SignUp ?</h1>
+                <label style="color: white; padding: 10px;"><img src="https://img6.hkrtcdn.com/react/static/media/signupFlow/white-bg-tick.svg" alt="">        1.5 million satisfied customers</label><br>
+                <label style="color: white; padding: 10px;"><img src="https://img6.hkrtcdn.com/react/static/media/signupFlow/white-bg-tick.svg" alt="">        Earn HK cash on every order</label><br>
+                <label style="color: white; padding: 10px;"><img src="https://img6.hkrtcdn.com/react/static/media/signupFlow/white-bg-tick.svg" alt="">        Get personal fitness expert advice</label><br>
+            </div>
+            <div class="right_div">
+                <div onclick="window.location.href = 'login.html'" style="padding: 5px;float: left;margin-top: 30px; font-size: 18px; font-family: sans-serif; margin-left: 50px;">Login</div>
+                <div style="padding:5px; float: left;margin-top: 30px; font-size: 18px;font-family: sans-serif;margin-left: 20px;border-bottom: solid #00afae">Sign Up</div>
+                <div style="clear: both;"></div>
+                <hr style="margin-left: 30px; width: 300px;">
+                <form id="signup_form">
+                    <p>Username</p>
+                    <input type="text" id="username" placeholder="Enter Username">
+                    <p>Mobile Number</p>
+                    <Input type="number" id="mobileno" placeholder="Enter 10 digit no.">
+                    <br>
+                    
+                    <p>Password</p>
+                    <input type="password" id="password" placeholder="Enter Password">
+                    <br>
+                    
+                </form>
+                <div id="alert"></div>
+                <button id="signup_btn" onclick="storeDetails()">Signup</button>
+                <br>
+                <br>
+                <br>
+                <div style="margin-left: 40px; font-size: small;">By Logging in you Accept our <a href="">Terms & Condition</a></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script src="signup.js"></script>

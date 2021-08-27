@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cart</title>
+    <style>
+        .header{
+            display: flex;
+            
+        }
+        .header img{
+            /* width: 100%; */
+            height: 80px
+        }
+        .headerCenter{
+            margin-top: 30px;
+            margin-left: 100px;
+        }
+        .headerCenter img{
+            height: 15px;
+        }
+    
+        .logo{
+            margin-left: 200px;
+        }
+        .main{
+             background-color: rgba(248,248,248,255);
+             /* display: flex;
+             justify-content: space-evenly; */
+             height: 700px;
+        }
+        .left_block{
+            margin-top: 60px;
+            background-color: white;
+            width: 100%;
+            margin-left: 100px;
+            height: 220px;
+            
+        }
+        .right_block{
+            width: 40%;
+            margin-left: 50px;
+            margin-top: 60px;
+            height: 300px;
+            font-family: sans-serif;
+            font-size: 14px;
+        }
+        .headerCenter{
+            color: grey;
+        }
+        .left_block_1{
+            display: flex;
+        }
+        .left_block_1 h2{
+            margin-left: 20px;
+        }
+        .left_block_1 span{
+            color: #1a4f69;
+            margin-top: 25px;
+            font-size: large;
+            margin-left: 400px;
+        }
+        .left_block_2{
+            display: flex;
+        }
+        .img_div img{
+            margin:5%;
+            float: left;
+        }
+        .img_div_info{
+            margin-left: 3%;
+        }
+        .img_div_info h4{
+            float: left;
+        }
+        .left_block_2 + span{
+            font-size: small; margin-left: 20px;
+        }
+        .left_block_2 + span + span{
+            color: green; font-size: small;
+        }
+        .right_block_1{
+            background-color: white; padding: 10px; width: 280px; border-radius: 10px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img class="logo" src="https://tse2.mm.bing.net/th?id=OIP.nPsqDhd1SHPHxHqkzPY8WQHaCh&pid=Api&P=0&w=526&h=180" />
+        <div class="headerCenter">
+            <span> <img src="https://img5.hkrtcdn.com/react/static/media/checkout/blue-tick.svg" alt="">      CART ------------</span>
+            <span> <img src="https://img5.hkrtcdn.com/react/static/media/checkout/outline-tick.svg" alt="">      ADDRESS ------------</span>
+            <span> <img src="https://img5.hkrtcdn.com/react/static/media/checkout/outline-tick.svg" alt="">      PAYMENT</span>
+        </div>
+    </div>
+    <hr>
+    <div class="main">
+        <div style="width: 80%; display: flex;">
+            <div class="left_block">
+                <div class="left_block_1"><h2>My Cart (1 item)</h2><span> <img src="https://img10.hkrtcdn.com/react/static/media/common/header/blue-wishlist.svg" alt="">            My wishlist</span></div>
+                <hr>
+                <div class="left_block_2">
+                    <div class="img_div">
+                        <img src="https://img4.hkrtcdn.com/12083/prd_1208253-MuscleBlaze-Mass-Gainer-XXL-11-lb-Chocolate_c_t.jpg" alt="">
+                    </div>
+                    <div class="img_div_info">
+                        <h4>MuscleBlaze Mass Gainer XXL, 11 lb Chocolate</h4><br>
+                        <span style="clear: right;"><b>₹4399</b>  </span><span style="color: grey;text-decoration: line-through;">₹5399</span><span style="color: green;font-size: small; margin-left: 20px;">16% off</span><br><br>
+                        <span> Quantity    <select>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                            </select></span>
+                    </div>
+                    
+                </div>
+                <span>delivered by</span><span>  30 aug</span>
+
+            </div>
+            <div class="right_block">
+                <div class="right_block_1">
+                    <span style="background-color: white; padding: 10px;"><img src="https://img2.hkrtcdn.com/react/static/media/common/location-grey.svg" alt=""></span><span><input style="padding: 10px; border: none;" type="text" placeholder="Enter PinCode"></span><span style="padding: 5px;background-color: #5bbbb2;color: white;">check</span>
+                </div>
+                <div style="background-color: white; padding: 10px; width: 280px; margin-top: 30px; border-radius: 10px;">
+                    <span style="background-color: white; padding: 10px;"><img style="width: 20px;" src="https://img10.hkrtcdn.com/react/static/media/cart/discount.png" alt=""></span><span><input style="padding: 10px; border: none;" type="text" placeholder="Enter PromoCode"></span><span style="padding: 5px;background-color: #5bbbb2;color: white;">Apply</span>
+                </div>
+                <button style="background-color: #df4622; padding: 15px; color: white; border:none; width: 300px;margin-top: 30px;border-radius: 10px;"> <b>Proceed to pay ₹ 4,535</b></button>
+                <div style="background-color: white; padding: 10px;margin-top: 30px; color: gray;">
+                    <h4 style="color: black;">Order Summery</h4>
+                    <span>Total MRP</span><Span style="margin-left: 150px;color: black;">₹ 5,399</Span><br><br>
+                    <span>Total Discounts</span><span style="margin-left: 120px; color: red;"> - ₹864</span><br><br>
+                    <span>Loyalty Savings</span><span style="margin-left: 75px; color:#1a4f69;font-size: smaller;">become a member</span><br>
+                    <span style="color: green; font-size: small;">Save Extra ₹136</span><br><br><br>
+                    <span>Shipping Charges</span><span style="margin-left: 100px;color: black; font-weight: 300;"> FREE</span><br>
+                    <hr><br>
+                    <span style="color: black;"> <b>Final Payable</b></span><span style="margin-left: 100px;color: black;font-weight: bold;">₹ 4,535</span><br><br>
+                    <p style="color: green; font-size: small;">You will Save ₹864 & Earn ₹91 HK Cash on this order</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
