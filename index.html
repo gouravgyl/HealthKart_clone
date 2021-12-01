@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthKart - Online Suppliment Store</title>
+    <!-- https://img4.hkrtcdn.com/react/static/media/signupFlow/login-bg.png -->
+    <style>
+        
+        .header img{
+            width: 100%;
+            height: 80px
+        }
+
+        .search-div {
+        display: flex;
+        width: 29%;
+        background-color: #eee;
+        height: 40px;
+        align-items: center;
+        justify-content: flex-start;
+        margin-top: 20px;
+        border-radius: 3px;
+      }
+
+      #searchpng {
+        width: 15px;
+        margin: 15px;
+        opacity: 0.5;
+        color: #3c3c3c
+      }
+      .search-div input {
+        width: 70%;
+        border: none;
+        margin-left: 2%;
+        background-color: #eee;
+        color: #3c3c3c
+      }
+      input:focus,
+      textarea:focus,
+      select:focus {
+        outline: none;
+      }
+      .search-div +div{
+          display: flex;
+          /* border: solid black; */
+          margin: 1%;
+          margin-top: 20px;
+          
+      }
+      .search-div +div span{
+          
+          margin: 10px;
+          font-family: Roboto,sans-serif;
+        font-size: 14px;
+        color: #212121;
+      }
+      .search-div +div span:hover{
+          color: skyblue;
+      }
+      .line{
+          margin-top: 12px;
+          height: 15px;
+          width: 2px;
+          background-color: black;
+      }
+      .nav{
+          /* padding-top: 5px; */
+         display: flex;
+          text-align: center;
+          /* justify-content: space-around; */
+          
+          
+      }
+      .Catagories ul {
+        display: flex;
+        list-style-type: none;
+        align-items: center;
+      }
+      
+      .Catagories{
+          width: 800px;
+          margin-left: 100px;
+          padding: 5px;
+          display: flex;
+          text-align: center;
+          justify-content: space-evenly;
+          font-family: sans-serif;
+          font-size: 14px;
+      }
+      .dropdown-content1 a:hover {
+        color: skyblue;
+      }
+      .dropdown-content2 a:hover {
+        color: skyblue;
+      }
+      .dropdown-content3 a:hover {
+        color: skyblue;
+      }
+      .dropdown-content4 a:hover {
+        color: skyblue;
+      }
+      .dropdown-content5 a:hover {
+        color: skyblue;
+      }
+
+      .dropdown-menu {
+        /* display: none;
+        position: absolute;
+        top: 200px; */
+        display: none;
+        position: fixed;
+        background: white;
+        top: 170px;
+
+        z-index: 20;
+        padding: 10px 30px 10px;
+        border: 1px solid #eee;
+        box-shadow: 0 8px 6px -6px #aaa;
+      }
+
+      .dropdown-menu1 {
+        left: 10%;
+      }
+
+      .dropdown-menu2 {
+        left: 18%;
+      }
+
+      .dropdown-menu3 {
+        left: 20%;
+      }
+      .dropdown-menu4 {
+        left: 25%;
+      }
+      .dropdown-menu5 {
+        left: 35%;
+      }
+      .dropdown-menu ul li {
+        margin-bottom: 10px;
+      }
+      .dropdown-menu ul li a {
+        /* margin-right: 20px; */
+        /* padding: 28px 17px 28px; */
+        text-align: center;
+        text-decoration: none;
+        font-size: 14px;
+        letter-spacing: 0.3px;
+        color: #282c3f;
+        /* border-bottom: none; */
+        -webkit-transition: left 0.2s ease-out, width 0.2s ease-out;
+        transition: left 0.2s ease-out, width 0.2s ease-out;
+        font-weight: 600;
+        text-transform: uppercase;
+        transition: all 0.3s ease;
+      }
+
+      .dropdown-menu ul li:hover a {
+        padding-left: 8px;
+        /* padding-right: -8px; */
+        color: skyblue;
+      }
+
+      .dropdown-menu ul {
+        list-style: none;
+      }
+      .Catagories a {
+        /* margin-right: 20px; */
+        padding: 28px 17px 28px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 14px;
+        letter-spacing: 0.3px;
+        color: #282c3f;
+        /* border-bottom: none; */
+        -webkit-transition: left 0.2s ease-out, width 0.2s ease-out;
+        transition: left 0.2s ease-out, width 0.2s ease-out;
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+      .Catagories ul:hover {
+        border-bottom: #282c3f;
+        /* background-color: red; */
+      }
+      .Catagories + div{
+          background-color: #d8faf9;
+          padding: 5px;
+          margin-left: 200px;
+          border-radius: 5px;
+      }
+      .Catagories + div:hover{
+          background-color: rgb(75, 75, 170);
+          color: white;
+      }
+      .Catagories + div + div{
+          margin-left: 10px;
+          background-color: #e3e3e3;
+          padding: 5px;
+          border-radius: 5px;
+      }
+      .mySlides {
+        display: none;
+      }
+      /* Slideshow container */
+      .slideshow-container {
+        max-width: 100%;
+        position: relative;
+        margin: 130px auto 0;
+        margin-top: 5px;
+      }
+      
+      /* Next & previous buttons */
+      .prev,
+      .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        padding: 16px;
+        margin-top: -22px;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+      }
+      /* Position the "next button" to the right */
+      .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+      }
+
+      /* On hover, add a black background color with a little bit see-through */
+      .prev:hover,
+      .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+      }
+      /* The dots/bullets/indicators */
+      .dot {
+        cursor: pointer;
+        height: 10px;
+        width: 10px;
+        margin: 0 2px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+      }
+
+      .active,
+      .dot:hover {
+        background-color: #717171;
+      }
+      /* Fading animation */
+      .fade {
+        -webkit-animation-name: fade;
+        -webkit-animation-duration: 1.5s;
+        animation-name: fade;
+        animation-duration: 1.5s;
+      }
+
+      @-webkit-keyframes fade {
+        from {
+          opacity: 0.4;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes fade {
+        from {
+          opacity: 0.4;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      .flash_sale_div{
+          width: 80%;
+          margin: auto;
+          padding-top: 50px;
+          height: 550px;
+          
+      }
+      .flash_sale_div_top{
+          width: 90%;
+          margin: auto;
+          height: 50px;
+          display: flex;
+          font-family: sans-serif;
+          background-color: white;
+      }
+      .flash_sale_div_top > img{
+          width: 16px;
+          margin: 1%;
+      }
+      .flash_sale_div_top > span{
+          margin: 1%;
+          font-size: x-large;
+          font-weight: bold;
+      }
+      .flash_sale_div_top > button{
+          margin: 1%;
+          margin-left: 70%;
+          padding: 10px;
+          background-color: #00afae;
+          color: white;
+          border: none;
+          border-radius: 5px;
+      }
+      .items{
+          display: flex;
+          justify-content: space-evenly;
+          margin-top: 30px;
+      }
+      .item{
+          width: 20%;
+          height:450px;
+           border-radius: 8px;
+          background-color: white;
+      }
+      .item_top{
+           display: flex;
+      }
+      .item_img img{
+          width: 80%;
+          margin-left: 20px;
+      }
+      .item_img + span{
+          border:0.5px solid red;
+          font-size:medium;
+          color: red;
+          padding: 5px;
+          margin-left: 5px;
+      }
+      .item_down{
+          display: flex;
+      }
+      .item_down_span{
+           margin-left: 10px;
+           margin-top: 10px;
+           font-size: medium;
+           font-family: sans-serif;
+           font-weight:600;
+      }
+      .item_down_span + span{
+           color: grey;
+           text-decoration: line-through;
+           margin-left: 20px;
+           margin-top: 10px;
+           font-size: medium;
+           font-family: sans-serif;
+      }
+      .item_down_span + span + button{
+            color: #4d8390;
+            border: none;
+            padding: 10px;
+            margin-left: 30px;
+            background-color: #e1edf4;
+      }
+      .item_down + div{
+           background-color: #eaf9f8;
+           padding: 10px;
+           margin-top: 30px;
+           font-size: medium;
+           font-family: sans-serif;
+      }
+     .item_down > button:hover{
+         color: white;
+         background-color: #00afae;
+     }
+    </style>
+</head>
+<body>
+    <div style="display: flex; margin-left: 100px; justify-content: center;">
+    <div class="header">
+        <div> <img src="https://tse2.mm.bing.net/th?id=OIP.nPsqDhd1SHPHxHqkzPY8WQHaCh&pid=Api&P=0&w=526&h=180" alt="logo"></div>
+    </div>
+    <div class="search-div">
+        <img id="searchpng" src="https://image.flaticon.com/icons/png/128/49/49116.png" alt="" />
+    
+        <input type="text" placeholder="Search for products, brands or Health Goals" />
+    </div>
+    <div><span>Loyalty Rewards</span><div class="line"></div><span>Customer Support</span><div class="line"></div><span><img src="https://img2.hkrtcdn.com/react/static/media/common/header/acc-icon.svg" alt="">        MyAccount & orders</span><div class="line"></div><span><span></span><img style="width: 30px;" src="https://img2.hkrtcdn.com/react/static/media/common/header/cart.svg" alt=""></span></div>
+    </div>
+    <hr>
+    <div class="nav" >
+        <div class="Catagories">
+        <ul>
+            <li class="dropdown-content1 dropdown-content">
+                <a href="mens.html">Catagory</a>
+            </li>
+            <li class="dropdown-content2 dropdown-content">
+                <a href="">Brand</a>
+            </li>
+            <li class="dropdown-content3 dropdown-content">
+                <a href="">Gender</a>
+            </li>
+            <li class="dropdown-content4 dropdown-content">
+                <a href="">Goal</a>
+            </li>
+            <li class="dropdown-content5 dropdown-content">
+                <a href="">Deals</a>
+            </li>
+            <li class="dropdown-content5 dropdown-content">
+                <a href="">Bestseller</a>
+            </li>
+            <li class="dropdown-content5 dropdown-content">
+                <a href="">GiftCards</a>
+            </li>
+        </ul>
+        </div>
+        <div><span><b>HK Consult</b></span></div>
+        <div><span><b>Find a store</b></span></div>
+    </div>
+    <!-- dropdown -->
+    <div class="dropdown-menu1 dropdown-menu">
+        <ul>
+            <li><a>Sports </a></li>
+            <li><a>Nutritions</a></li>
+            <li><a>Vitamins</a></li>
+            <li><a>Suppliments</a></li>
+            <li><a>fitness</a></li>
+        </ul>
+    </div>
+    
+    <div class="dropdown-menu2 dropdown-menu">
+        <ul>
+            <li><a>MuscleBlaze</a></li>
+            <li><a>bGreen</a></li>
+            <li><a>JustHer</a></li>
+            <li><a>Muscle Tech</a></li>
+            <li><a>Myprotine</a></li>
+        </ul>
+    </div>
+    
+    <div class="dropdown-menu3 dropdown-menu">
+        <ul style="display:flex; justify-content: space-evenly;">
+            <li style="border:solid turquoise;"><a>Men <img src="https://img2.hkrtcdn.com/react/static/media/common/header/man-2.svg" alt=""></a></li>
+            <li style="border:solid turquoise; margin-left:20px"><a>Women <img src="https://img2.hkrtcdn.com/react/static/media/common/header/woman-2.svg" alt=""></a></li>
+        </ul>
+    </div>
+    
+    <div class="dropdown-menu4 dropdown-menu">
+        <ul style="display:flex; justify-content: space-evenly;">
+            <li style="border:solid turquoise; margin: 2%;"><a> <img style="width: 70px;" src="https://img6.hkrtcdn.com/14784/normal_1478355_o.png" alt=""></a></li>
+            <li style="border:solid turquoise; margin: 2%;"><a> <img style="width: 70px;" src="https://img8.hkrtcdn.com/14784/normal_1478357_o.png" alt=""></a></li>
+            <li style="border:solid turquoise; margin: 2%;"><a> <img style="width: 70px;" src="https://img10.hkrtcdn.com/14784/normal_1478359_o.png" alt=""></a></li>
+            <li style="border:solid turquoise; margin: 2%;"><a> <img style="width: 70px;" src="https://img2.hkrtcdn.com/14784/normal_1478361_o.png" alt=""></a></li>
+        </ul>
+    </div>
+    
+    <div class="dropdown-menu5 dropdown-menu">
+        <ul style="display:flex; justify-content: space-evenly;">
+            <li style="margin: 2%;"><a> <img style="width: 100px;" src="https://img4.hkrtcdn.com/14768/normal_1476713_o.png" alt=""></a></li>
+            <li style="margin: 2%;"><a> <img style="width: 100px;" src="https://img8.hkrtcdn.com/14768/normal_1476717_o.png" alt=""></a></li>
+            <li style="margin: 2%;"><a> <img style="width: 100px;" src="https://img2.hkrtcdn.com/14768/normal_1476721_o.png" alt=""></a></li>
+            <li style="margin: 2%;"><a> <img style="width: 100px;" src="https://img10.hkrtcdn.com/14768/normal_1476719_o.png" alt=""></a></li>
+        </ul>
+    </div>
+    <hr>
+    <!-- slideshow carousel -->
+    
+    <div class="slideshow-container">
+        <div class="mySlides fade">
+            <img src="https://img4.hkrtcdn.com/15641/bnr_1564053_o.jpg"
+                style="width: 100%" />
+        </div>
+    
+        <div class="mySlides fade">
+            <img src="https://img10.hkrtcdn.com/15640/bnr_1563949_o.jpg"
+                style="width: 100%" />
+        </div>
+    
+        <div class="mySlides fade">
+            <img src="https://img4.hkrtcdn.com/15642/bnr_1564113_o.png"
+                style="width: 100%" />
+        </div>
+    
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    <br />
+    
+    <div style="background-color:rgba(248,248,248,255);">
+        <div class="flash_sale_div">
+            <div class="flash_sale_div_top">
+                <img src="https://img10.hkrtcdn.com/react/static/media/common/misc/flash-sale-black.svg" alt="">
+                <span>Flash Sale</span>
+                <button>View All</button>
+            </div>
+            <div class="items">
+                <div onclick="window.location.href = 'product.html'" class="item">
+                    <div class="item_top">
+                        <img src="https://img10.hkrtcdn.com/react/static/media/common/variant/flash-icon.svg" alt="">
+                        <span style="font-size:small;color: navy;">32 units</span>
+                        <span style="font-size:small; margin-left: 80px; color: navy;">17 : 16 : 35</span>
+                    </div>
+                    <div class="item_img">
+                        <img src="https://img8.hkrtcdn.com/10629/prd_1062847-MuscleBlaze-Whey-Hydro-4.4-lb-Chocolate_o.jpg" alt="">
+                    </div>
+                    <span>11% off</span>
+                    <br>
+                    <br>
+                    <p style="padding-left: 10px; font-family: sans-serif; font-size: medium;">MuscleBlaze Whey Hydro, 4.4 lb, Chocolate</p>
+                    <div class="item_down">
+                        <span class="item_down_span">₹ 6299</span>
+                        <span>₹ 7099</span>
+                        <button><img src="https://img2.hkrtcdn.com/react/static/media/common/new_cart.svg" alt="">  ADD</button>
+                    </div>
+                    <div>Premium Price: <b>₹ 6110</b> <img style="margin-left: 30px;" src="https://img2.hkrtcdn.com/react/static/media/common/locked_circle_1.svg" alt=""></div>
+                </div>
+                <div class="item">
+                    <div class="item_top">
+                        <img src="https://img10.hkrtcdn.com/react/static/media/common/variant/flash-icon.svg" alt="">
+                        <span style="font-size:small;color: navy;">32 units</span>
+                        <span style="font-size:small; margin-left: 80px; color: navy;">17 : 16 : 35</span>
+                    </div>
+                    <div class="item_img">
+                        <img src="https://img6.hkrtcdn.com/11003/prd_1100235-MuscleBlaze-Gold-Gainer-XXL-2.2-lb-Chocolate-Bliss_o.jpg" alt="">
+                    </div>
+                    <span>11% off</span>
+                    <br>
+                    <br>
+                    <p style="padding-left: 10px; font-family: sans-serif; font-size: medium;">MuscleBlaze Whey Hydro, 4.4 lb, Chocolate</p>
+                    <div class="item_down">
+                        <span class="item_down_span">₹ 1349</span>
+                        <span>₹ 1599</span>
+                        <button><img src="https://img2.hkrtcdn.com/react/static/media/common/new_cart.svg" alt="">  ADD</button>
+                    </div>
+                    <div>Premium Price: <b>₹ 6110</b> <img style="margin-left: 30px;" src="https://img2.hkrtcdn.com/react/static/media/common/locked_circle_1.svg" alt=""></div>
+                </div>
+                <div class="item">
+                    <div class="item_top">
+                        <img src="https://img10.hkrtcdn.com/react/static/media/common/variant/flash-icon.svg" alt="">
+                        <span style="font-size:small;color: navy;">32 units</span>
+                        <span style="font-size:small; margin-left: 80px; color: navy;">17 : 16 : 35</span>
+                    </div>
+                    <div class="item_img">
+                        <img src="https://img8.hkrtcdn.com/10158/prd_1015747-TrueBasics-Omega3-Fish-Oil-60-capsules_o.jpg" alt="">
+                    </div>
+                    <span>11% off</span>
+                    <br>
+                    <br>
+                    <p style="padding-left: 10px; font-family: sans-serif; font-size: medium;">TrueBasics Fish Oil with 1250mg Omega-3 560mg</p>
+                    <div class="item_down">
+                        <span class="item_down_span">₹ 798</span>
+                        <span>₹ 899</span>
+                        <button><img src="https://img2.hkrtcdn.com/react/static/media/common/new_cart.svg" alt="">  ADD</button>
+                    </div>
+                    <div>Premium Price: <b>₹ 6110</b> <img style="margin-left: 30px;" src="https://img2.hkrtcdn.com/react/static/media/common/locked_circle_1.svg" alt=""></div>
+                </div>
+                <div class="item">
+                    <div class="item_top">
+                        <img src="https://img10.hkrtcdn.com/react/static/media/common/variant/flash-icon.svg" alt="">
+                        <span style="font-size:small;color: navy;">32 units</span>
+                        <span style="font-size:small; margin-left: 80px; color: navy;">17 : 16 : 35</span>
+                    </div>
+                    <div class="item_img">
+                        <img src="https://img2.hkrtcdn.com/11963/prd_1196281-MuscleTech-NitroTech-Performance-Series-4-lb-Milk-Chocolate_o.jpg" alt="">
+                    </div>
+                    <span>11% off</span>
+                    <br>
+                    <br>
+                    <p style="padding-left: 10px; font-family: sans-serif; font-size: medium;">MuscleTech NitroTech Series, Milk Chocolate</p>
+                    <div class="item_down">
+                        <span class="item_down_span">₹ 5188</span>
+                        <span>₹ 6499</span>
+                        <button><img src="https://img2.hkrtcdn.com/react/static/media/common/new_cart.svg" alt="">  ADD</button>
+                    </div>
+                    <div>Premium Price: <b>₹ 6110</b> <img style="margin-left: 30px;" src="https://img2.hkrtcdn.com/react/static/media/common/locked_circle_1.svg" alt=""></div>
+                </div>
+            </div>
+        </div>
+        <div class="flash_sale_div">
+            <div class="flash_sale_div_top">
+                <img src="https://img10.hkrtcdn.com/react/static/media/common/misc/flash-sale-black.svg" alt="">
+                <span>Trending Now</span>
+                <button>View All</button>
+            </div>
+            <div class="items">
+                <div class="item">
+                    <div class="item_top">
+                        <img src="https://img10.hkrtcdn.com/react/static/media/common/variant/flash-icon.svg" alt="">
+                        <span style="font-size:small;color: navy;">32 units</span>
+                        <span style="font-size:small; margin-left: 80px; color: navy;">17 : 16 : 35</span>
+                    </div>
+                    <div class="item_img">
+                        <img src="https://img8.hkrtcdn.com/10629/prd_1062847-MuscleBlaze-Whey-Hydro-4.4-lb-Chocolate_o.jpg"
+                            alt="">
+                    </div>
+                    <span>11% off</span>
+                    <br>
+                    <br>
+                    <p style="padding-left: 10px; font-family: sans-serif; font-size: medium;">MuscleBlaze Whey Hydro, 4.4 lb,
+                        Chocolate</p>
+                    <div class="item_down">
+                        <span class="item_down_span">₹ 6299</span>
+                        <span>₹ 7099</span>
+                        <button><img src="https://img2.hkrtcdn.com/react/static/media/common/new_cart.svg" alt=""> ADD</button>
+                    </div>
+                    <div>Premium Price: <b>₹ 6110</b> <img style="margin-left: 30px;"
+                            src="https://img2.hkrtcdn.com/react/static/media/common/locked_circle_1.svg" alt=""></div>
+                </div>
+                <div class="item">
+                    <div class="item_top">
+                        <img src="https://img10.hkrtcdn.com/react/static/media/common/variant/flash-icon.svg" alt="">
+                        <span style="font-size:small;color: navy;">32 units</span>
+                        <span style="font-size:small; margin-left: 80px; color: navy;">17 : 16 : 35</span>
+                    </div>
+                    <div class="item_img">
+                        <img src="https://img6.hkrtcdn.com/11003/prd_1100235-MuscleBlaze-Gold-Gainer-XXL-2.2-lb-Chocolate-Bliss_o.jpg"
+                            alt="">
+                    </div>
+                    <span>11% off</span>
+                    <br>
+                    <br>
+                    <p style="padding-left: 10px; font-family: sans-serif; font-size: medium;">MuscleBlaze Whey Hydro, 4.4 lb,
+                        Chocolate</p>
+                    <div class="item_down">
+                        <span class="item_down_span">₹ 1349</span>
+                        <span>₹ 1599</span>
+                        <button><img src="https://img2.hkrtcdn.com/react/static/media/common/new_cart.svg" alt=""> ADD</button>
+                    </div>
+                    <div>Premium Price: <b>₹ 6110</b> <img style="margin-left: 30px;"
+                            src="https://img2.hkrtcdn.com/react/static/media/common/locked_circle_1.svg" alt=""></div>
+                </div>
+                <div class="item">
+                    <div class="item_top">
+                        <img src="https://img10.hkrtcdn.com/react/static/media/common/variant/flash-icon.svg" alt="">
+                        <span style="font-size:small;color: navy;">32 units</span>
+                        <span style="font-size:small; margin-left: 80px; color: navy;">17 : 16 : 35</span>
+                    </div>
+                    <div class="item_img">
+                        <img src="https://img8.hkrtcdn.com/10158/prd_1015747-TrueBasics-Omega3-Fish-Oil-60-capsules_o.jpg"
+                            alt="">
+                    </div>
+                    <span>11% off</span>
+                    <br>
+                    <br>
+                    <p style="padding-left: 10px; font-family: sans-serif; font-size: medium;">TrueBasics Fish Oil with 1250mg
+                        Omega-3 560mg</p>
+                    <div class="item_down">
+                        <span class="item_down_span">₹ 798</span>
+                        <span>₹ 899</span>
+                        <button><img src="https://img2.hkrtcdn.com/react/static/media/common/new_cart.svg" alt=""> ADD</button>
+                    </div>
+                    <div>Premium Price: <b>₹ 6110</b> <img style="margin-left: 30px;"
+                            src="https://img2.hkrtcdn.com/react/static/media/common/locked_circle_1.svg" alt=""></div>
+                </div>
+                <div class="item">
+                    <div class="item_top">
+                        <img src="https://img10.hkrtcdn.com/react/static/media/common/variant/flash-icon.svg" alt="">
+                        <span style="font-size:small;color: navy;">32 units</span>
+                        <span style="font-size:small; margin-left: 80px; color: navy;">17 : 16 : 35</span>
+                    </div>
+                    <div class="item_img">
+                        <img src="https://img2.hkrtcdn.com/11963/prd_1196281-MuscleTech-NitroTech-Performance-Series-4-lb-Milk-Chocolate_o.jpg"
+                            alt="">
+                    </div>
+                    <span>11% off</span>
+                    <br>
+                    <br>
+                    <p style="padding-left: 10px; font-family: sans-serif; font-size: medium;">MuscleTech NitroTech Series, Milk
+                        Chocolate</p>
+                    <div class="item_down">
+                        <span class="item_down_span">₹ 5188</span>
+                        <span>₹ 6499</span>
+                        <button><img src="https://img2.hkrtcdn.com/react/static/media/common/new_cart.svg" alt=""> ADD</button>
+                    </div>
+                    <div>Premium Price: <b>₹ 6110</b> <img style="margin-left: 30px;"
+                            src="https://img2.hkrtcdn.com/react/static/media/common/locked_circle_1.svg" alt=""></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script src="home.js"></script>
